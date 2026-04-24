@@ -1,0 +1,28 @@
+<script>
+function submitForm(){
+    const nama = document.querySelector('input[placeholder="Nama"]').value;
+    const phone = document.querySelector('input[placeholder="No Telefon"]').value;
+
+    if(!nama || !phone){
+        alert("Sila isi semua maklumat terlebih dahulu");
+        return;
+    }
+
+    // mesej yang akan dihantar ke Telegram
+    const message = `Permintaan Konsultasi:
+Nama: ${nama}
+No Telefon: ${phone}`;
+
+    // username telegram kamu
+    const telegramUsername = "https://t.me/Ptptnoficialbot";
+
+    // encode message untuk URL
+    const url = `https://t.me/${telegramUsername}?text=${encodeURIComponent(message)}`;
+
+    // notifikasi dulu
+    alert("Anda akan diarahkan ke Telegram untuk teruskan.");
+
+    // redirect
+    window.location.href = url;
+}
+</script>
